@@ -11,16 +11,15 @@ namespace ProjectOne.Data
         public int Id { get; set; }
         public int Base { get; set; }
         public int Height { get; set; }
-
-        public string Shape =>
+        public override string Form =>
             "Liksidig Triangel";
-        public double Area =>
+        public override double Area =>
             Base * Height / 2;
-        public double Circumference =>
+        public override double Circumference =>
             Base * 3;
-        public DateTime CreateDate => 
+        public override DateTime CreateDate => 
             DateTime.Now;
-        public void GetParams()
+        public override void GetParams()
         {
             Console.WriteLine("Ange bas");
             Base = int.Parse(Console.ReadLine());
@@ -34,18 +33,18 @@ namespace ProjectOne.Data
         public int Id { get; set; }
         public int Base { get; set; }
         public int Height { get; set; }
-        public string Shape =>
+        public override string Form =>
             "Rektangel";
-        public double Area =>
+        public override double Area =>
             Base * Height;
 
-        public double Circumference =>
+        public override double Circumference =>
             Base * 2 + Height * 2;
 
-        public DateTime CreateDate =>
+        public override DateTime CreateDate =>
             DateTime.Now;
 
-        public void GetParams()
+        public override void GetParams()
         {
             Console.WriteLine("Ange bas");
             Base = int.Parse(Console.ReadLine());
@@ -60,16 +59,16 @@ namespace ProjectOne.Data
         public int Base { get; set; }
         public int Height { get; set; }
         public int ShortSide { get; set; }
-        public string Form =>
+        public override string Form =>
             "Paralellogram";
-        public DateTime CreateDate =>
+        public override DateTime CreateDate =>
             DateTime.Now;
-        public double Area =>
+        public override double Area =>
             Base * Height;
-        public double Circumference =>
+        public override double Circumference =>
             Base * 2 + Height * 2;
 
-        public void GetParams()
+        public override void GetParams()
         {
             Console.WriteLine("Ange långsidan");
             Base = int.Parse(Console.ReadLine());
@@ -83,20 +82,20 @@ namespace ProjectOne.Data
 
     public class Romb : Shape
     {
-        public int Id { get; set; }
+        public override int Id { get; set; }
         public int Side { get; set; }
-        public DateTime CreateDate =>
+        public override DateTime CreateDate =>
             DateTime.Now;
-        public double Circumference =>
+        public override double Circumference =>
             Side * 4;
-        public double Area =>
+        public override double Area =>
             Side * Side * Math.Sqrt(2) / 2;
-        public void GetParams()
+        public override void GetParams()
         {
             Console.WriteLine("Ange sidlängd");
             Side = int.Parse(Console.ReadLine());
         }
-        public string Form =>
+        public override string Form =>
             "Romb";
 
     }

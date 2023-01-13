@@ -9,15 +9,15 @@ namespace ProjectOne.Data
 {
     public class Shape
     {
-        public string Form { get; set; }
-        public double Circumference { get; set; }
-        public DateTime CreateDate { get; set; }
-        public void GetParams()
+        public virtual string Form { get; set; }
+        public virtual double Circumference { get; set; }
+        public virtual DateTime CreateDate { get; set; }
+        public virtual void GetParams()
         {
 
         }
-        public double Area { get; set; }
+        public virtual double Area { get; set; }
         [Key]
-        public int Id { get; set; }
+        public virtual int Id { get; set; }
     }
 }

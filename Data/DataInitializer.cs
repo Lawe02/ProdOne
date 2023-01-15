@@ -8,11 +8,16 @@ namespace ProjectOne.Data
 {
     public class DataInitializer
     {
-        public void AddShapes(ApplicationDbContext db)
+        private readonly ApplicationDbContext _context;
+        public DataInitializer(ApplicationDbContext dbContext)
         {
-            if(!db.Shapes.Any(x => x.Id == 41))
+            _context = dbContext;
+        }
+        public void AddShapes()
+        {
+            if(!_context.Shapes.Any(x => x.Id == 41))
             {
-                db.Shapes.Add(new Paralellogram()
+                _context.Shapes.Add(new Paralellogram()
                 {
                     Circumference = 3,
                     CreateDate = DateTime.Now,
@@ -20,9 +25,9 @@ namespace ProjectOne.Data
                     Form = "Paralellogram"
                 });              
             }
-            if (!db.Shapes.Any(x => x.Id == 42))
+            if (!_context.Shapes.Any(x => x.Id == 42))
             {
-                db.Shapes.Add(new Romb()
+                _context.Shapes.Add(new Romb()
                 {
                     Circumference = 3,
                     CreateDate = DateTime.Now,
@@ -30,9 +35,9 @@ namespace ProjectOne.Data
                     Form = "Romb"
                 });
             }
-            if (!db.Shapes.Any(x => x.Id == 43))
+            if (!_context.Shapes.Any(x => x.Id == 43))
             {
-                db.Shapes.Add(new Triangel()
+                _context.Shapes.Add(new Triangel()
                 {
                     Circumference = 3,
                     CreateDate = DateTime.Now,
@@ -40,9 +45,9 @@ namespace ProjectOne.Data
                     Form = "Tiangel"
                 });
             }
-            if (!db.Shapes.Any(x => x.Id == 44))
+            if (!_context.Shapes.Any(x => x.Id == 44))
             {
-                db.Shapes.Add(new Rectangel()
+                _context.Shapes.Add(new Rectangel()
                 {
                     Circumference = 3,
                     CreateDate = DateTime.Now,

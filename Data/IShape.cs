@@ -16,6 +16,22 @@ namespace ProjectOne.Data
         {
 
         }
+        public int RetInt()
+        {
+            while (true)
+            {
+                Console.WriteLine("Ange längd i cm");
+                if(int.TryParse(Console.ReadLine(), out int num))
+                {
+                    return num;
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Ange en siffra tack");
+                }
+            }
+        }
         public virtual double Area { get; set; }
         [Key]
         public virtual int Id { get; set; }

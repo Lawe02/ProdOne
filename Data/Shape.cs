@@ -22,9 +22,9 @@ namespace ProjectOne.Data
         public override void GetParams()
         {
             Console.WriteLine("Ange bas");
-            Base = int.Parse(Console.ReadLine());
+            Base = RetInt();
             Console.WriteLine("Ange bas");
-            Height = int.Parse(Console.ReadLine());
+            Height = RetInt();
         }
     }
 
@@ -47,9 +47,9 @@ namespace ProjectOne.Data
         public override void GetParams()
         {
             Console.WriteLine("Ange bas");
-            Base = int.Parse(Console.ReadLine());
+            Base = RetInt();
             Console.WriteLine("Ange höjd");
-            Height = int.Parse(Console.ReadLine());
+            Height = RetInt();
         }
     }
 
@@ -71,11 +71,11 @@ namespace ProjectOne.Data
         public override void GetParams()
         {
             Console.WriteLine("Ange långsidan");
-            Base = int.Parse(Console.ReadLine());
+            Base = RetInt();
             Console.WriteLine("Ange höjden");
-            Height = int.Parse(Console.ReadLine());
+            Height = RetInt();
             Console.WriteLine("Ange kortsidan");
-            ShortSide = int.Parse(Console.ReadLine());
+            ShortSide = RetInt();
         }
 
     }
@@ -93,7 +93,7 @@ namespace ProjectOne.Data
         public override void GetParams()
         {
             Console.WriteLine("Ange sidlängd");
-            Side = int.Parse(Console.ReadLine());
+            Side = RetInt();
         }
         public override string Form =>
             "Romb";

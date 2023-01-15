@@ -7,7 +7,7 @@ using ProjectOne.Data;
 
 namespace ProjectOne.Services
 {
-    public class ShapeService
+    public class shapeService
     {
         public Shape AddShape(int sel)
         {
@@ -16,9 +16,10 @@ namespace ProjectOne.Services
             switch (sel)
             {
                 case 1:
-                    s =new Romb();
+                    s = new Romb();
                     s.GetParams();
                     x = new Romb() { Area = s.Area, Circumference = s.Circumference, CreateDate = s.CreateDate, Form = s.Form };
+
                     break;
 
                 case 2:
@@ -42,6 +43,7 @@ namespace ProjectOne.Services
 
                     break;
             }
+    
             return x;
         }
     }

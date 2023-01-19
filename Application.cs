@@ -21,11 +21,10 @@ namespace ProjectOne
                 var ShapeService = new shapeService();
                 var menu = new Menu(db, ShapeService);
 
-                menu.MainMenu();
-
                 db.Database.Migrate();
                 dt.AddShapes();
                 db.SaveChanges();
+                menu.MainMenu();
 
             }
         }

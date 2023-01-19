@@ -12,11 +12,11 @@ namespace ProjectOne.Data
         public int Base { get; set; }
         public int Height { get; set; }
         public override string Form =>
-            "Liksidig Triangel";
+            "Rätvinklig Triangel";
         public override double Area =>
             Base * Height / 2;
         public override double Circumference =>
-            Base * 3;
+            Base + Height + Math.Sqrt(Base * Base + Height * Height);
         public override DateTime CreateDate => 
             DateTime.Now;
         public override void GetParams()

@@ -25,7 +25,7 @@ namespace ProjectOne.Data
             Base = RetInt();
             Console.WriteLine("Ange bas");
             Height = RetInt();
-        }
+        }   
     }
 
     public class Rectangel : Shape

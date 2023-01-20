@@ -104,6 +104,7 @@ namespace ProjectOne.Services
                 Console.WriteLine("Ange 6 för modulus");
                 Console.WriteLine("Ange 7 för att updatera beräkning");
                 Console.WriteLine("Ange 8 för att se alla beräkningar");
+                Console.WriteLine("Ange 9 för att ta bort beräkning");
                 try
                 {
                     switch (Convert.ToInt32(Console.ReadLine()))
@@ -174,6 +175,12 @@ namespace ProjectOne.Services
                             break;
                         case 8:
                             _calcServices.ShowCalcs(_context);
+                            break;
+                        case 9:
+                            _calcServices.ShowCalcs(_context);
+                            var calcToDelete = _calcServices.GetCalc(_context);
+                            _context.CalculationResults.Remove(calcToDelete);
+                            _context.SaveChanges();
                             break;
                     }
                 }

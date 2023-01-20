@@ -15,7 +15,7 @@ namespace ProjectOne.Data
         }
         public void AddShapes()
         {
-            if(!_context.Shapes.Any(x => x.Id == 41))
+            if(!_context.Shapes.Any(x => x.Id == 96))
             {
                 _context.Shapes.Add(new Paralellogram()
                 {

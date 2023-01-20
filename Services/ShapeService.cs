@@ -11,8 +11,9 @@ namespace ProjectOne.Services
     {
         public Shape AddShape(int sel)
         {
-            Shape s = new();
+
             var x = new Shape();
+            Shape s;
             switch (sel)
             {
                 case 1:
@@ -43,8 +44,68 @@ namespace ProjectOne.Services
 
                     break;
             }
-    
+
             return x;
+        }
+        public Shape ReturnShape(ApplicationDbContext db)
+        {
+            var shape = new Shape();
+            while (true)
+            {
+                Console.WriteLine("Ange Id");
+                if (int.TryParse(Console.ReadLine(), out var id))
+                {
+                    shape = db.Shapes.FirstOrDefault(x => x.Id == id);
+
+                    if (shape != null)
+                        break;
+                    else
+                        Console.WriteLine("Ange ett id som existerar tack");
+                }
+                else
+                    Console.WriteLine("Ange ett Id som existerar");
+            }
+            return shape;
+        }
+
+        public Shape UpdateShape(Shape shape)
+        {
+            switch (shape.Form)
+            {
+                case "Rätvinklig Triangel":
+                    var triangel = new Triangel();
+                    triangel.GetParams();
+                    shape.Circumference = triangel.Circumference; shape.Area = triangel.Area; 
+                    break;
+
+                case "Romb":
+                    var romb = new Romb();
+                    romb.GetParams();
+                    shape.Circumference = romb.Circumference; shape.Area = romb.Area;
+                    break;
+
+                case "Rectangel":
+                    var rectangel = new Rectangel();
+                    rectangel.GetParams();
+                    shape.Circumference = rectangel.Circumference; shape.Area = rectangel.Area;
+                    break;
+
+                case "Paralellogram":
+                    var paralellogram = new Paralellogram();
+                    paralellogram.GetParams();
+                    shape.Circumference = paralellogram.Circumference; shape.Area = paralellogram.Area;
+                    break;
+            }
+            return shape;
+        }
+
+        public void ReadShapes(ApplicationDbContext db)
+        {
+            Build builder = new();
+            db = builder.BuildApp();
+            Console.WriteLine("----ALL SHAPES----");
+            db.Shapes.ToList().ForEach(x => Console.WriteLine($"ID: {x.Id} || CREATEDATE: {x.CreateDate} || AREA: {x.Area} || CIRCUMFERENCE: {x.Circumference} || FORM: {x.Form}"));
+            Console.ReadLine();
         }
     }
 }

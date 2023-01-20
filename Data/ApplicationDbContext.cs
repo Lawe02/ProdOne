@@ -5,11 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace ProjectOne.Data
 {
     public class ApplicationDbContext : DbContext
     {
         public DbSet<Shape> Shapes { get; set; }
+        public DbSet<CalculationResult> CalculationResults { get; set; }
         public ApplicationDbContext()
         {
         }

@@ -83,7 +83,6 @@ namespace ProjectOne.Services
                         case 8:
                             _shapeService.ReadShapes(_context);
                             break;
-
                     }
                 }
                 catch (Exception ex)
@@ -96,6 +95,7 @@ namespace ProjectOne.Services
         {
             while (true)
             {
+                Console.Clear();
                 Console.WriteLine("Ange 1 för addition");
                 Console.WriteLine("Ange 2 för subtraktion");
                 Console.WriteLine("Ange 3 för division");
@@ -189,6 +189,10 @@ namespace ProjectOne.Services
                     Console.WriteLine(ex.Message);
                 }
             }
+        }
+        public void RPSMenu()
+        {
+
         }
         public void MainMenu()
         {

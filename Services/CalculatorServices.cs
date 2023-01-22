@@ -11,19 +11,26 @@ namespace ProjectOne.Services
     {
         public void ShowCalcs(ApplicationDbContext db)
         {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("---ALLA BERÄKNIGAR---");
             db.CalculationResults.ToList().ForEach(x => Console.WriteLine($"ID: {x.Id} || CREATEDATE: {x.CreateDate} || A: {x.A} || B: {x.B} || SUM: {x.Sum} || OPERATOR: {x.Operatore}"));
+            Console.WriteLine("Tryck enter för att gå vidare");
+            Console.ReadLine();
         }
         public CalculationResult GetCalc(ApplicationDbContext db)
         {
             while (true)
             {
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("Ange Id");
                 if(int.TryParse(Console.ReadLine(), out int id))
                 {
                     var res = db.CalculationResults.FirstOrDefault(x => x.Id == id);
                     if (res == null)
+                    {
+                        Console.ForegroundColor= ConsoleColor.Red;
                         Console.WriteLine("Ange ett Id somexisterar");
+                    }
                     else
                     {
                         return res;
@@ -31,7 +38,10 @@ namespace ProjectOne.Services
                     }
                 }
                 else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Ange ett tal");
+                }
             }
             
         }

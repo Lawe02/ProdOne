@@ -10,6 +10,7 @@ namespace ProjectOne.Services
 {
     public class Menu
     {
+        private readonly RPSServices _rpsService = new RPSServices();
         private readonly CalculatorServices _calcServices = new CalculatorServices();
         private readonly Shape _shape = new Shape();
         private readonly ApplicationDbContext _context;
@@ -25,6 +26,7 @@ namespace ProjectOne.Services
             while (true)
             {
                 Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("Ange 1 för Romb");
                 Console.WriteLine("Ange 2 för Rektangel");
                 Console.WriteLine("Ange 3 för Paralellogram");
@@ -83,11 +85,11 @@ namespace ProjectOne.Services
                         case 8:
                             _shapeService.ReadShapes(_context);
                             break;
-
                     }
                 }
                 catch (Exception ex)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(ex.Message);
                 }
             }
@@ -96,6 +98,8 @@ namespace ProjectOne.Services
         {
             while (true)
             {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Clear();
                 Console.WriteLine("Ange 1 för addition");
                 Console.WriteLine("Ange 2 för subtraktion");
                 Console.WriteLine("Ange 3 för division");
@@ -105,6 +109,7 @@ namespace ProjectOne.Services
                 Console.WriteLine("Ange 7 för att updatera beräkning");
                 Console.WriteLine("Ange 8 för att se alla beräkningar");
                 Console.WriteLine("Ange 9 för att ta bort beräkning");
+                Console.WriteLine("Ange 10 för att gå tillbaka");
                 try
                 {
                     switch (Convert.ToInt32(Console.ReadLine()))
@@ -182,6 +187,10 @@ namespace ProjectOne.Services
                             _context.CalculationResults.Remove(calcToDelete);
                             _context.SaveChanges();
                             break;
+
+                        case 10:
+                            MainMenu();
+                            break;
                     }
                 }
                 catch(Exception ex)
@@ -190,10 +199,49 @@ namespace ProjectOne.Services
                 }
             }
         }
+        public void RPSMenu()
+        {
+            while (true)
+            {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Ange 1 för att spela mot datorn");
+                Console.WriteLine("Ange 2 för att se nuvarande vinstsnitt");
+                Console.WriteLine("Ange 3 för att gå tillbaka");
+                Console.ForegroundColor = ConsoleColor.Gray;
+                try
+                {
+                    switch (Convert.ToInt32(Console.ReadLine()))
+                    {
+                        case 1:
+                            var game = _rpsService.Game(_context);
+                            _context.Results.Add(game);
+                            _context.SaveChanges();
+                            break;
+
+                        case 2:
+                            _rpsService.ShowRate(_context);
+                            break;
+
+                        case 3:
+                            MainMenu();
+                            break;
+                    }
+                }
+                catch(Exception ex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(ex.Message);
+                    Console.ReadLine();
+                }
+            }
+        }
         public void MainMenu()
         {
             while (true)
             {
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("Ange 1 för att komma till shapeMenu");
                 Console.WriteLine("Ange 2 för att komma till kalkylatorMenu");
                 Console.WriteLine("Ange 3 för att komma till StenSaxPåseMenu");
@@ -211,12 +259,15 @@ namespace ProjectOne.Services
                             break;
 
                         case 3:
+                            RPSMenu();
                             break;
                     }
                 }
                 catch(Exception ex)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(ex.Message);
+                    Console.ReadLine();
                 }
             }
         }

@@ -23,7 +23,7 @@ namespace ProjectOne.Data
         {
             Console.WriteLine("Ange bas");
             Base = RetInt();
-            Console.WriteLine("Ange bas");
+            Console.WriteLine("Ange höjd");
             Height = RetInt();
         }   
     }

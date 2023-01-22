@@ -15,7 +15,7 @@ namespace ProjectOne.Data
         }
         public void AddShapes()
         {
-            if(!_context.Shapes.Any(x => x.Id == 96))
+            if(!_context.Shapes.Any(x => x.Id == 42))
             {
                 _context.Shapes.Add(new Paralellogram()
                 {
@@ -25,7 +25,7 @@ namespace ProjectOne.Data
                     Form = "Paralellogram"
                 });              
             }
-            if (!_context.Shapes.Any(x => x.Id == 42))
+            if (!_context.Shapes.Any(x => x.Id == 43))
             {
                 _context.Shapes.Add(new Romb()
                 {
@@ -35,17 +35,17 @@ namespace ProjectOne.Data
                     Form = "Romb"
                 });
             }
-            if (!_context.Shapes.Any(x => x.Id == 43))
+            if (!_context.Shapes.Any(x => x.Id == 44))
             {
                 _context.Shapes.Add(new Triangel()
                 {
                     Circumference = 3,
                     CreateDate = DateTime.Now,
                     Area = 8,
-                    Form = "Tiangel"
+                    Form = "Triangel"
                 });
             }
-            if (!_context.Shapes.Any(x => x.Id == 44))
+            if (!_context.Shapes.Any(x => x.Id == 45))
             {
                 _context.Shapes.Add(new Rectangel()
                 {

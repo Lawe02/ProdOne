@@ -20,6 +20,7 @@ namespace ProjectOne.Data
         {
             while (true)
             {
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("Ange längd i cm");
                 if(int.TryParse(Console.ReadLine(), out int num))
                 {
@@ -28,6 +29,7 @@ namespace ProjectOne.Data
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Ange en siffra tack");
                 }
             }
@@ -36,6 +38,7 @@ namespace ProjectOne.Data
         {
             while (true)
             {
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine(message);
                 if (int.TryParse(Console.ReadLine(), out int num))
                 {
@@ -44,6 +47,7 @@ namespace ProjectOne.Data
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Ange en siffra tack");
                 }
             }

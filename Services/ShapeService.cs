@@ -52,6 +52,7 @@ namespace ProjectOne.Services
             var shape = new Shape();
             while (true)
             {
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("Ange Id");
                 if (int.TryParse(Console.ReadLine(), out var id))
                 {
@@ -60,10 +61,17 @@ namespace ProjectOne.Services
                     if (shape != null)
                         break;
                     else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Ange ett id som existerar tack");
+
+                    }
                 }
                 else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Ange ett Id som existerar");
+                }
             }
             return shape;
         }
@@ -72,7 +80,7 @@ namespace ProjectOne.Services
         {
             switch (shape.Form)
             {
-                case "Rätvinklig Triangel":
+                case "Triangel":
                     var triangel = new Triangel();
                     triangel.GetParams();
                     shape.Circumference = triangel.Circumference; shape.Area = triangel.Area; 
@@ -103,6 +111,7 @@ namespace ProjectOne.Services
         {
             Build builder = new();
             db = builder.BuildApp();
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("----ALL SHAPES----");
             db.Shapes.ToList().ForEach(x => Console.WriteLine($"ID: {x.Id} || CREATEDATE: {x.CreateDate} || AREA: {x.Area} || CIRCUMFERENCE: {x.Circumference} || FORM: {x.Form}"));
             Console.ReadLine();

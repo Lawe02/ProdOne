@@ -9,4 +9,4 @@
 
 #Rock Paper Sicors game results are saved and can't be edited, winrate is avilable to se#
 
-
+##The shape calculator saves its entities as Shape that contains createdate, area, circumference and actual shape(form). Shape also is a baseclass for the different shapes, the reason for that is because all shapes have different properties for counting area and circumference.##

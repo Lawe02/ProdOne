@@ -12,6 +12,7 @@ namespace ProjectOne.Data
     {
         public DbSet<Shape> Shapes { get; set; }
         public DbSet<CalculationResult> CalculationResults { get; set; }
+        public DbSet<RPSResult> Results { get; set; }
         public ApplicationDbContext()
         {
         }

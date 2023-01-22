@@ -10,6 +10,7 @@ namespace ProjectOne.Services
 {
     public class Menu
     {
+        private readonly RPSServices _rpsService = new RPSServices();
         private readonly CalculatorServices _calcServices = new CalculatorServices();
         private readonly Shape _shape = new Shape();
         private readonly ApplicationDbContext _context;
@@ -192,7 +193,36 @@ namespace ProjectOne.Services
         }
         public void RPSMenu()
         {
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("Ange 1 för att spela mot datorn");
+                Console.WriteLine("Ange 2 för att se nuvarande vinstsnitt");
+                Console.WriteLine("Ange 3 för att gå tillbaka");
+                try
+                {
+                    switch (Convert.ToInt32(Console.ReadLine()))
+                    {
+                        case 1:
+                            var game = _rpsService.Game(_context);
+                            _context.Results.Add(game);
+                            _context.SaveChanges();
+                            break;
 
+                        case 2:
+                            _rpsService.ShowRate(_context);
+                            break;
+
+                        case 3:
+                            MainMenu();
+                            break;
+                    }
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
         }
         public void MainMenu()
         {
@@ -215,6 +245,7 @@ namespace ProjectOne.Services
                             break;
 
                         case 3:
+                            RPSMenu();
                             break;
                     }
                 }

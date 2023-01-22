@@ -42,7 +42,7 @@ namespace ProjectOne.Data
                     Circumference = 3,
                     CreateDate = DateTime.Now,
                     Area = 8,
-                    Form = "Tiangel"
+                    Form = "Triangel"
                 });
             }
             if (!_context.Shapes.Any(x => x.Id == 44))

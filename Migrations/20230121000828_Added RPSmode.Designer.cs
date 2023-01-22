@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectOne.Data;
 
@@ -11,9 +12,10 @@ using ProjectOne.Data;
 namespace ProjectOne.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230121000828_Added RPSmode")]
+    partial class AddedRPSmode
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,12 +55,6 @@ namespace ProjectOne.Migrations
 
             modelBuilder.Entity("ProjectOne.Data.RPSResult", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
                     b.Property<string>("ComputerChoise")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -76,8 +72,6 @@ namespace ProjectOne.Migrations
 
                     b.Property<double>("WinRate")
                         .HasColumnType("float");
-
-                    b.HasKey("Id");
 
                     b.ToTable("Results");
                 });

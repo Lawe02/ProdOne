@@ -10,16 +10,19 @@ namespace ProjectOne.Services
 {
     public class Menu
     {
-        private readonly RPSServices _rpsService = new RPSServices();
-        private readonly CalculatorServices _calcServices = new CalculatorServices();
-        private readonly Shape _shape = new Shape();
+        private readonly RPSServices _rpsService;
+        private readonly CalculatorServices _calculatorServices;
+        private readonly Shape _shape;
         private readonly ApplicationDbContext _context;
         private readonly shapeService _shapeService;
         private readonly ICalculator[] _calculators = {new Addition(), new Subtraktion(), new Division(), new Multiplikation(), new Sqrt(), new Modulus() };
-        public Menu(ApplicationDbContext dbContext, shapeService service)
+        public Menu(ApplicationDbContext dbContext, shapeService service, RPSServices rpsService, CalculatorServices calculatorServices, Shape shape)
         {
             _context = dbContext;
             _shapeService = service;
+            _rpsService = rpsService;
+            _calculatorServices = calculatorServices;
+            _shape = shape;
         }
         public void ShapeMenu()
         {
@@ -162,8 +165,8 @@ namespace ProjectOne.Services
                             break;
 
                         case 7:
-                            _calcServices.ShowCalcs(_context);
-                            var calcToUpdate = _calcServices.GetCalc(_context);
+                            _calculatorServices.ShowCalcs(_context);
+                            var calcToUpdate = _calculatorServices.GetCalc(_context);
                             int aToUpdate = _shape.RetInt("Ange faktor A");
                             int bToUpdate;
 
@@ -179,11 +182,11 @@ namespace ProjectOne.Services
                             _context.SaveChanges();
                             break;
                         case 8:
-                            _calcServices.ShowCalcs(_context);
+                            _calculatorServices.ShowCalcs(_context);
                             break;
                         case 9:
-                            _calcServices.ShowCalcs(_context);
-                            var calcToDelete = _calcServices.GetCalc(_context);
+                            _calculatorServices.ShowCalcs(_context);
+                            var calcToDelete = _calculatorServices.GetCalc(_context);
                             _context.CalculationResults.Remove(calcToDelete);
                             _context.SaveChanges();
                             break;

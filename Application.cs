@@ -17,9 +17,12 @@ namespace ProjectOne
 
             using(var db = bas.BuildApp())
             {
+                var shape = new Shape();
                 var dt = new DataInitializer(db);
+                var calc = new CalculatorServices();
                 var ShapeService = new shapeService();
-                var menu = new Menu(db, ShapeService);
+                var rps = new RPSServices();
+                var menu = new Menu(db, ShapeService, rps, calc, shape);
 
                 db.Database.Migrate();
                 dt.AddShapes();

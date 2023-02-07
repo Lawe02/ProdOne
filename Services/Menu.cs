@@ -10,19 +10,21 @@ namespace ProjectOne.Services
 {
     public class Menu
     {
+        private readonly Library _library;
         private readonly RPSServices _rpsService;
         private readonly CalculatorServices _calculatorServices;
         private readonly Shape _shape;
         private readonly ApplicationDbContext _context;
         private readonly shapeService _shapeService;
         private readonly ICalculator[] _calculators = {new Addition(), new Subtraktion(), new Division(), new Multiplikation(), new Sqrt(), new Modulus() };
-        public Menu(ApplicationDbContext dbContext, shapeService service, RPSServices rpsService, CalculatorServices calculatorServices, Shape shape)
+        public Menu(ApplicationDbContext dbContext, shapeService service, RPSServices rpsService, CalculatorServices calculatorServices, Shape shape, Library library)
         {
             _context = dbContext;
             _shapeService = service;
             _rpsService = rpsService;
             _calculatorServices = calculatorServices;
             _shape = shape;
+            _library = library; 
         }
         public void ShapeMenu()
         {
@@ -30,18 +32,22 @@ namespace ProjectOne.Services
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Ange 1 för Romb");
-                Console.WriteLine("Ange 2 för Rektangel");
-                Console.WriteLine("Ange 3 för Paralellogram");
-                Console.WriteLine("Ange 4 för Triangel");
-                Console.WriteLine("Ange 5 för att gå tillbaka");
-                Console.WriteLine("Ange 6 för att ta bort shape");
-                Console.WriteLine("Ange 7 för att uppdatera shape");
-                Console.WriteLine("Ange 8 för att se alla former");
+
+                var options = new string[] {
+                                            "Ange 1 för Romb",
+                                            "Ange 2 för Rektangel",
+                                            "Ange 3 för Paralellogram",
+                                            "Ange 4 för Triangel",
+                                            "Ange 5 för att gå tillbaka",
+                                            "Ange 6 för att ta bort shape",
+                                            "Ange 7 för att uppdatera shape",
+                                            "Ange 8 för att se alla shapes"
+                                            };
+                var val = _library.MenuHandler(options);
 
                 try
                 {
-                    switch (Convert.ToInt32(Console.ReadLine()))
+                    switch (val)
                     {
                         case 1:
                             var s = _shapeService.AddShape(1);
@@ -102,20 +108,35 @@ namespace ProjectOne.Services
             while (true)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.Clear();
-                Console.WriteLine("Ange 1 för addition");
-                Console.WriteLine("Ange 2 för subtraktion");
-                Console.WriteLine("Ange 3 för division");
-                Console.WriteLine("Ange 4 för multiplikation");
-                Console.WriteLine("Ange 5 för roten");
-                Console.WriteLine("Ange 6 för modulus");
-                Console.WriteLine("Ange 7 för att updatera beräkning");
-                Console.WriteLine("Ange 8 för att se alla beräkningar");
-                Console.WriteLine("Ange 9 för att ta bort beräkning");
-                Console.WriteLine("Ange 10 för att gå tillbaka");
+                //Console.Clear();
+                //Console.WriteLine("Ange 1 för addition");
+                //Console.WriteLine("Ange 2 för subtraktion");
+                //Console.WriteLine("Ange 3 för division");
+                //Console.WriteLine("Ange 4 för multiplikation");
+                //Console.WriteLine("Ange 5 för roten");
+                //Console.WriteLine("Ange 6 för modulus");
+                //Console.WriteLine("Ange 7 för att updatera beräkning");
+                //Console.WriteLine("Ange 8 för att se alla beräkningar");
+                //Console.WriteLine("Ange 9 för att ta bort beräkning");
+                //Console.WriteLine("Ange 10 för att gå tillbaka");
+
+                var options = new string[] {
+                                            "Ange 1 för addition",
+                                            "Ange 2 för subtraktion",
+                                            "Ange 3 division", 
+                                            "Ange 4 för multiplikation",
+                                            "Ange 5 för roten",
+                                            "Ange 6 för modulus", 
+                                            "Ange 7 för att uppdatera beräkning",
+                                            "Ange 8 för att se alla beräkningar",
+                                            "Ange 9 för att ta bort beräkning",
+                                            "Ange 10 för att gå tillbaka"
+                                            };
+
+                var val = _library.MenuHandler(options);
                 try
                 {
-                    switch (Convert.ToInt32(Console.ReadLine()))
+                    switch (val)
                     {
                         case 1:
                             int a = _shape.RetInt("Ange faktor a");
@@ -204,17 +225,26 @@ namespace ProjectOne.Services
         }
         public void RPSMenu()
         {
+            ConsoleKeyInfo keyInfo;
             while (true)
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Ange 1 för att spela mot datorn");
-                Console.WriteLine("Ange 2 för att se nuvarande vinstsnitt");
-                Console.WriteLine("Ange 3 för att gå tillbaka");
+                //Console.WriteLine("Ange 1 för att spela mot datorn");
+                //Console.WriteLine("Ange 2 för att se nuvarande vinstsnitt");
+                //Console.WriteLine("c");
                 Console.ForegroundColor = ConsoleColor.Gray;
+                var options = new string[] { 
+                                            "Ange 1 för att spela mot datorn",
+                                            "Ange 2 för att se nuvarande vinstsnitt",
+                                            "Ange 2 för att se nuvarande vinstsnitt"
+                                            };
+
+                var option = _library.MenuHandler(options);
+
                 try
                 {
-                    switch (Convert.ToInt32(Console.ReadLine()))
+                    switch (option)
                     {
                         case 1:
                             var game = _rpsService.Game(_context);
@@ -245,13 +275,18 @@ namespace ProjectOne.Services
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.White;
-                Console.WriteLine("Ange 1 för att komma till shapeMenu");
-                Console.WriteLine("Ange 2 för att komma till kalkylatorMenu");
-                Console.WriteLine("Ange 3 för att komma till StenSaxPåseMenu");
+
+                var options = new string[] {
+                                            "Ange 1 för att komma till shapeMenu", 
+                                            "Ange 2 för att komma till kalkylatorMenu",
+                                            "Ange 3 för att komma till StenSaxPåsemMenu"
+                                            };
+
+                var option = _library.MenuHandler(options);
 
                 try
                 {
-                    switch (Convert.ToInt32(Console.ReadLine()))
+                    switch (option)
                     {
                         case 1:
                             ShapeMenu();

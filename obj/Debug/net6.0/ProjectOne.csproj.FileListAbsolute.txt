@@ -47,12 +47,8 @@ C:\Users\Lawe Zangena\csharp\ProjectOne\bin\Debug\net6.0\runtimes\win-arm\native
 C:\Users\Lawe Zangena\csharp\ProjectOne\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Lawe Zangena\csharp\ProjectOne\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Lawe Zangena\csharp\ProjectOne\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Lawe Zangena\csharp\ProjectOne\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\Lawe Zangena\csharp\ProjectOne\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
-C:\Users\Lawe Zangena\csharp\ProjectOne\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
 C:\Users\Lawe Zangena\csharp\ProjectOne\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\Lawe Zangena\csharp\ProjectOne\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Lawe Zangena\csharp\ProjectOne\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\Lawe Zangena\csharp\ProjectOne\obj\Debug\net6.0\ProjectOne.csproj.AssemblyReference.cache
 C:\Users\Lawe Zangena\csharp\ProjectOne\obj\Debug\net6.0\ProjectOne.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Lawe Zangena\csharp\ProjectOne\obj\Debug\net6.0\ProjectOne.AssemblyInfoInputs.cache
@@ -63,3 +59,8 @@ C:\Users\Lawe Zangena\csharp\ProjectOne\obj\Debug\net6.0\ProjectOne.dll
 C:\Users\Lawe Zangena\csharp\ProjectOne\obj\Debug\net6.0\ref\ProjectOne.dll
 C:\Users\Lawe Zangena\csharp\ProjectOne\obj\Debug\net6.0\ProjectOne.pdb
 C:\Users\Lawe Zangena\csharp\ProjectOne\obj\Debug\net6.0\ProjectOne.genruntimeconfig.cache
+C:\Users\Lawe Zangena\csharp\ProjectOne\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Lawe Zangena\csharp\ProjectOne\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\Lawe Zangena\csharp\ProjectOne\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\Lawe Zangena\csharp\ProjectOne\obj\Debug\net6.0\Interop.MediaPlayer.dll
+C:\Users\Lawe Zangena\csharp\ProjectOne\obj\Debug\net6.0\ProjectOne.csproj.ResolveComReference.cache
